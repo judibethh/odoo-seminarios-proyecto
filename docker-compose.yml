@@ -1,0 +1,28 @@
+services:
+  db:
+    image: postgres:15
+    environment:
+      - POSTGRES_DB=odoo_db
+      - POSTGRES_PASSWORD=odoo_password
+      - POSTGRES_USER=odoo_user
+    volumes:
+      - db_data:/var/lib/postgresql/data
+
+  odoo:
+    image: odoo:18
+    depends_on:
+      - db
+    ports:
+      - "8069:8069"
+    volumes:
+      - odoo_web_data:/var/lib/odoo
+      - C:\\Users\\flias\\mi-proyecto\\odoo-seminarios-proyecto\\custom_addons:/mnt/extra-addons
+    environment:
+      - HOST=db
+      - USER=odoo_user
+      - PASSWORD=odoo_password
+    command: odoo --addons-path=/mnt/extra-addons --db_host=db --db_user=odoo_user --db_password=odoo_password -d odoo_db -i base
+
+volumes:
+  db_data:
+  odoo_web_data:
