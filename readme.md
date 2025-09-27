@@ -13,5 +13,5 @@
 
 ## 3. Uso de Herramientas de IA
 - Herramientas: Grok.
-- Prompts: "Genera modelo seminar.py para Odoo", "Crea vistas XML para seminar".
+- Prompts: "Genera modelo seminar.py para Odoo", "Crea vistas XML para seminario".
 - Ayuda: resolvió sintaxis, ahorró tiempo.
